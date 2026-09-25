@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="driver">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Revel — reconstructed</title>
+<link rel="stylesheet" href="shared/tokens.css?v=8">
+<style>
+body { background:var(--surface-page); color:var(--ink); display:grid; place-items:center; min-height:100vh; }
+.l { width:min(980px,92vw); padding:40px 0; }
+h1 { font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; margin:0 0 6px; }
+p.lead { color:var(--ink-muted); margin:0 0 30px; line-height:1.55; max-width:60ch; }
+.cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+a.card { display:block; padding:22px; border-radius:14px; background:var(--surface-raised); text-decoration:none; color:var(--ink); border:1px solid var(--line); transition:.15s; }
+a.card:hover { background:var(--surface-sunken); border-color:var(--line-strong); transform:translateY(-2px); }
+a.card h2 { margin:0 0 6px; font-size:19px; }
+a.card .k { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--brand-cyan); margin-bottom:12px; }
+a.card p { margin:0; color:var(--ink-muted); font-size:13px; line-height:1.5; }
+.note { margin-top:26px; color:var(--ink-faint); font-size:12px; line-height:1.6; }
+@media (max-width:760px){ .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="l">
+  <h1>Revel · reconstructed from demo recordings</h1>
+  <p class="lead">Three clickable prototypes rebuilt from screen recordings taken on the platform's last days, cross-referenced against the original PRD database. No source code survived.</p>
+  <div class="cards">
+    <a class="card" href="ops/index.html">
+      <div class="k">Internal</div>
+      <h2>RevelOps →</h2>
+      <p>The operations console. Shifts, vehicles, drivers, invoices, and the review queues that adjudicated driver performance. Two markets, each with its own navigation.</p>
+    </a>
+    <a class="card" href="driver/index.html">
+      <div class="k">1099 rideshare</div>
+      <h2>Revel Driver →</h2>
+      <p>The independent driver app. Earnings history, onboarding, licence capture, and the restriction states that gated going online.</p>
+    </a>
+    <a class="card" href="rider/index.html">
+      <div class="k">Consumer</div>
+      <h2>Revel →</h2>
+      <p>The rider app. Search, airport drop-off by airline, upfront prices, pickup confirmation on the map, matching, the driver en route, cancellation, and receipts.</p>
+    </a>
+  </div>
+  <p class="note">A portfolio reconstruction, not affiliated with or endorsed by Revel. All drivers, vehicles, licence numbers, addresses and amounts are fabricated. Nothing here contains real personal data.</p>
+</div>
+</body>
+</html>

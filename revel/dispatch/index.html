@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dispatch: matching drivers to rides when you own the fleet — Steven Heyen</title><meta name="description" content="Batch matching that cut about a minute from average wait, a price on empty pickup time, and a matcher that knows what a toll costs. Dispatch looks different when every idle hour is on your P&#38;L."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/revel/dispatch/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="Dispatch: matching drivers to rides when you own the fleet"><meta property="og:description" content="Batch matching that cut about a minute from average wait, a price on empty pickup time, and a matcher that knows what a toll costs. Dispatch looks different when every idle hour is on your P&#38;L."><meta property="og:url" content="https://stevenh44.github.io/revel/dispatch/"><meta property="og:image" content="https://stevenh44.github.io/og/revel-dispatch.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Dispatch: matching drivers to rides when you own the fleet"><meta name="twitter:description" content="Batch matching that cut about a minute from average wait, a price on empty pickup time, and a matcher that knows what a toll costs. Dispatch looks different when every idle hour is on your P&#38;L."><meta name="twitter:image" content="https://stevenh44.github.io/og/revel-dispatch.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/">Hertz</a><a href="/revel/" aria-current="page">Revel</a><a href="/rex/">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">Revel · Senior PM → Group PM · 2023–2024</p> <h1>Dispatch: matching drivers to rides when you own the fleet</h1> <p class="summary">Batch matching that cut about a minute from average wait, a price on empty pickup time, and a matcher that knows what a toll costs. Dispatch looks different when every idle hour is on your P&amp;L.</p> </header> <article class="prose"> <h2 id="the-short-version">The short version</h2>
+<p>On Uber, the driver bears the cost of waiting between rides. Revel owned the cars and, for most of
+this period, employed the drivers, so every empty minute was Revel’s cost. Over about a year I ran
+the cross-functional pod that moved matching from first-come-first-served to <strong>batched
+assignment</strong>. Underneath it sat a <strong>synthetic ETA</strong> that let the matcher weigh costs like <strong>non-revenue pickup time</strong> and <strong>tolls</strong>, not just time. Average
+passenger wait fell by <strong>about a minute</strong>, and the fleet spent less time driving to the wrong place.</p>
+<figure class="fig" data-fig="batch-matching" style="--fig-w:720"><div class="fig-scroll" tabindex="0" role="region" aria-label="Animated comparison of two dispatch strategies on the same four ride requests an (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="Animated comparison of two dispatch strategies on the same four ride requests and four idle cars. Left: matching one at a time — each request takes the nearest free car the moment it arrives, so an early request takes a car a later request needed more. Right: batch matching — requests accumulate for a few seconds, then all are assigned at once, and total pickup distance is about a third shorter. In production this cut about sixty seconds from average wait.">
+<style>
+[data-fig="batch-matching"] .t{fill:var(--ink);font:600 13px var(--font-sans)}[data-fig="batch-matching"] .m{fill:var(--ink-muted);font:400 11.5px var(--font-sans)}
+[data-fig="batch-matching"] .k{fill:var(--ink-muted);font:500 11px var(--font-mono);letter-spacing:.02em}[data-fig="batch-matching"] .n{fill:var(--accent);font:500 18px var(--font-mono);letter-spacing:-.02em}
+[data-fig="batch-matching"] .lane{fill:var(--surface-raised);stroke:var(--border)}[data-fig="batch-matching"] .hair{stroke:var(--border);fill:none}
+[data-fig="batch-matching"] .p{fill:var(--ink)}[data-fig="batch-matching"] .d{fill:var(--accent)}[data-fig="batch-matching"] .lbl{fill:var(--ink-muted);font:500 10px var(--font-mono)}
+[data-fig="batch-matching"] .g{stroke:var(--ink-muted);stroke-width:1.5;fill:none;stroke-dasharray:1;stroke-dashoffset:1}
+[data-fig="batch-matching"] .b{stroke:var(--accent);stroke-width:2;fill:none;stroke-dasharray:1;stroke-dashoffset:1}
+[data-fig="batch-matching"] .win{fill:var(--accent);transform-origin:left;transform:scaleX(0)}
+[data-fig="batch-matching"] .tot{opacity:0}
+
+[data-fig="batch-matching"] /* 9-second loop. Percentages are seconds/9. */
+@keyframes batch-matching-p1{0%,5%{opacity:0}7%,92%{opacity:1}100%{opacity:0}}
+@keyframes batch-matching-p2{0%,13%{opacity:0}15%,92%{opacity:1}100%{opacity:0}}
+@keyframes batch-matching-p3{0%,21%{opacity:0}23%,92%{opacity:1}100%{opacity:0}}
+@keyframes batch-matching-p4{0%,28%{opacity:0}30%,92%{opacity:1}100%{opacity:0}}
+@keyframes batch-matching-g1{0%,7%{stroke-dashoffset:1;opacity:1}11%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes batch-matching-g2{0%,15%{stroke-dashoffset:1;opacity:1}19%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes batch-matching-g3{0%,23%{stroke-dashoffset:1;opacity:1}27%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes batch-matching-g4{0%,30%{stroke-dashoffset:1;opacity:1}34%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes batch-matching-win{0%{transform:scaleX(0);opacity:1}34%{transform:scaleX(1);opacity:1}36%,100%{transform:scaleX(1);opacity:.35}}
+@keyframes batch-matching-bl{0%,36%{stroke-dashoffset:1;opacity:1}43%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes batch-matching-tot{0%,50%{opacity:0}54%,92%{opacity:1}100%{opacity:0}}
+
+[data-fig="batch-matching"] .p1{animation:batch-matching-p1 9s linear infinite}[data-fig="batch-matching"] .p2{animation:batch-matching-p2 9s linear infinite}[data-fig="batch-matching"] .p3{animation:batch-matching-p3 9s linear infinite}[data-fig="batch-matching"] .p4{animation:batch-matching-p4 9s linear infinite}
+[data-fig="batch-matching"] .g1{animation:batch-matching-g1 9s linear infinite}[data-fig="batch-matching"] .g2{animation:batch-matching-g2 9s linear infinite}[data-fig="batch-matching"] .g3{animation:batch-matching-g3 9s linear infinite}[data-fig="batch-matching"] .g4{animation:batch-matching-g4 9s linear infinite}
+[data-fig="batch-matching"] .win{animation:batch-matching-win 9s linear infinite}[data-fig="batch-matching"] .bl{animation:batch-matching-bl 9s linear infinite}[data-fig="batch-matching"] .tot{animation:batch-matching-tot 9s linear infinite}
+
+@media (prefers-reduced-motion:reduce){
+  [data-fig="batch-matching"] .p1,[data-fig="batch-matching"] .p2,[data-fig="batch-matching"] .p3,[data-fig="batch-matching"] .p4,[data-fig="batch-matching"] .g1,[data-fig="batch-matching"] .g2,[data-fig="batch-matching"] .g3,[data-fig="batch-matching"] .g4,[data-fig="batch-matching"] .bl,[data-fig="batch-matching"] .win,[data-fig="batch-matching"] .tot{animation:none}
+  [data-fig="batch-matching"] .g,[data-fig="batch-matching"] .b{stroke-dashoffset:0}[data-fig="batch-matching"] .win{transform:scaleX(1);opacity:.35}[data-fig="batch-matching"] .tot{opacity:1}
+}
+</style>
+
+
+<text class="k" x="0" y="12">BEFORE · ONE AT A TIME</text>
+<text class="k" x="380" y="12">AFTER · BATCHED, EVERY FEW SECONDS</text>
+
+
+<rect class="lane" x="0.5" y="22.5" width="339" height="220" rx="8"></rect>
+<rect class="lane" x="380.5" y="22.5" width="339" height="220" rx="8"></rect>
+
+
+<g transform="translate(0,22)">
+  
+  <rect class="d" x="185" y="120" width="10" height="10" rx="2"></rect><text class="lbl" x="199" y="129">car</text>
+  <rect class="d" x="55" y="150" width="10" height="10" rx="2"></rect><text class="lbl" x="69" y="159">car</text>
+  <rect class="d" x="325" y="145" width="10" height="10" rx="2"></rect><text class="lbl" x="314" y="172">car</text>
+  <rect class="d" x="40" y="53" width="10" height="10" rx="2"></rect><text class="lbl" x="36" y="78">car</text>
+  
+  <circle class="p p1" cx="120" cy="95" r="5"></circle><text class="lbl p1" x="106" y="88">1</text>
+  <circle class="p p2" cx="90" cy="205" r="5"></circle><text class="lbl p2" x="100" y="210">2</text>
+  <circle class="p p3" cx="245" cy="150" r="5"></circle><text class="lbl p3" x="253" y="166">3</text>
+  <circle class="p p4" cx="300" cy="50" r="5"></circle><text class="lbl p4" x="308" y="46">4</text>
+  
+  <path class="g g1" pathLength="1" d="M120 95 L190 125"></path>
+  <path class="g g2" pathLength="1" d="M90 205 L60 155"></path>
+  <path class="g g3" pathLength="1" d="M245 150 L330 150"></path>
+  <path class="g g4" pathLength="1" d="M300 50 L45 58"></path>
+</g>
+
+
+<g transform="translate(380,22)">
+  <rect class="d" x="185" y="120" width="10" height="10" rx="2"></rect><text class="lbl" x="199" y="129">car</text>
+  <rect class="d" x="55" y="150" width="10" height="10" rx="2"></rect><text class="lbl" x="69" y="159">car</text>
+  <rect class="d" x="325" y="145" width="10" height="10" rx="2"></rect><text class="lbl" x="314" y="172">car</text>
+  <rect class="d" x="40" y="53" width="10" height="10" rx="2"></rect><text class="lbl" x="36" y="78">car</text>
+  <circle class="p p1" cx="120" cy="95" r="5"></circle><text class="lbl p1" x="106" y="88">1</text>
+  <circle class="p p2" cx="90" cy="205" r="5"></circle><text class="lbl p2" x="100" y="210">2</text>
+  <circle class="p p3" cx="245" cy="150" r="5"></circle><text class="lbl p3" x="253" y="166">3</text>
+  <circle class="p p4" cx="300" cy="50" r="5"></circle><text class="lbl p4" x="308" y="46">4</text>
+  
+  <text class="lbl" x="130" y="18">batch window</text>
+  <rect class="hair" x="130" y="24" width="200" height="6" rx="3" fill="none"></rect>
+  <rect class="win" x="130" y="24" width="200" height="6" rx="3"></rect>
+  
+  <path class="b bl" pathLength="1" d="M120 95 L45 58"></path>
+  <path class="b bl" pathLength="1" d="M90 205 L60 155"></path>
+  <path class="b bl" pathLength="1" d="M245 150 L190 125"></path>
+  <path class="b bl" pathLength="1" d="M300 50 L330 150"></path>
+</g>
+
+
+<g class="tot">
+  <text class="m" x="0" y="266">1 took the middle car; 3 needed it more; 4 got the far one.</text>
+  <text class="n" x="0" y="292">474</text><text class="m" x="46" y="292">total pickup distance, this example</text>
+  <text class="n" x="380" y="292">306</text><text class="m" x="426" y="292">−35% · in production: ~60 s off average wait</text>
+</g>
+<text class="m" x="380" y="266">Wait a few seconds, solve for everyone at once.</text>
+</svg>
+</div><figcaption>Why batching beats first-come-first-served: the same four requests and four idle cars, matched two ways.</figcaption></figure>
+<h2 id="batch-matching">Batch matching</h2>
+<p>The original matcher gave each accepted ride to the nearest free driver, instantly. That failed
+predictably: the first request took a car that the next one, thirty seconds later, needed more.</p>
+<p>We made matching <strong>asynchronous</strong>. Accepted rides wait a few seconds in a “matching” state, then
+every ride in the window is assigned at once with the best overall pairing. The passenger sees a
+brief “finding your driver” screen instead of an instant match.</p>
+<p>Two decisions shaped the launch:</p>
+<ul>
+<li><strong>Start the window at 1–10 seconds</strong>, though efficiency gains only appear at 20–30. The first
+release proved a visible pause didn’t raise cancellations before we asked for gains.</li>
+<li><strong>Measure deadheading, not speed.</strong> The metric was <em>recall deadheading</em>, cars driving empty to a
+pickup. A window that makes matching slower and deadheading shorter is a win.</li>
+</ul>
+<p>Batching also let the matcher weigh more than distance: a driver due for a break or heading back
+to the depot, a first-time rider who deserved the most reliable match, a higher-revenue ride. We
+projected a 10–20% cut in total wait time at peak from batching alone.</p>
+<p>My team built nearly all of it: the batching engine, the assignment logic, and the synthetic ETA.
+The consumer team built the waiting screen.</p>
+<h2 id="synthetic-eta">Synthetic ETA</h2>
+<p>A matcher optimizes one number, usually ETA. But much of what made a pairing good or bad for
+Revel wasn’t time: a toll on the route, a car pulled out of the busy core, dead miles nobody paid
+for.</p>
+<p><strong>Synthetic ETA</strong> was the real ETA plus time-equivalent penalties for those costs. If a toll
+counted as +2 minutes, a toll-free car a minute further away would win. Passengers were still
+quoted the real ETA. Every cost we cared about became a knob the matcher already understood.</p>
+<h2 id="dead-time-pricing">Dead-time pricing</h2>
+<p>Pickup time was consistently <strong>about 20% of available driver time</strong>, none of it revenue. The
+maximum ETA shown to a passenger was also the maximum dead time we accepted, so a driver could
+spend twenty minutes reaching a pickup mid-surge. A bad ride could also pull a car out of the core,
+where zone pricing then <em>discounted</em> the ride that brought demand back.</p>
+<p>I wrote the spec that defined <strong>non-revenue pickup time</strong> as distinct from wait time. A 20-minute
+pickup that includes 15 minutes dropping off a previous passenger is only 5 minutes of dead time.
+The spec weighed three options: cap dead time and show “no drivers” past a demand-based threshold,
+charge a premium past a threshold, or penalize dead time in the batch matcher. The matcher fix had a
+cost: matching time could rise from 7 seconds to 45 for the worst 20% of rides.</p>
+<p>We shipped the last two: a <strong>price premium</strong> once dead time passed a threshold, and dead time
+weighted into the synthetic ETA so the matcher avoided long empty pickups when a better pairing
+existed.</p>
+<h2 id="toll-aware-matching">Toll-aware matching</h2>
+<p>About <strong>9% of Revel’s toll spend</strong>, $3,500–4,500 a week, came from drivers crossing a toll to
+<em>reach</em> a pickup, because the matcher didn’t know tolls existed. A Brooklyn driver sent through the
+Hugh L. Carey Tunnel to a Manhattan pickup costs $7.46 with E-ZPass (2026 rates) before the ride
+starts, which can be most of the margin on a short fare.</p>
+<p>The fix was narrow: move routing to an API version that returns toll data, and add the toll to the
+synthetic ETA for any pairing that crosses one. It was deliberately a <strong>tiebreak, not a rule</strong>. If
+the only free car is across the bridge, the passenger still gets it. Launch plan: watch
+cancellation rate, service levels, and wait times.</p>
+<h2 id="supply-positioning">Supply positioning</h2>
+<p>With employee drivers, a <strong>rebalance</strong> sent a driver to a high-demand area. Contractors couldn’t
+be directed that way, and they drifted toward Manhattan and the airports. We replaced instruction
+with information: a <strong>demand heat map</strong> in the driver app, built on a weighted rolling average so
+it showed where rides would be, not where the last spike had been. Success meant utilization held
+once we stopped directing drivers.</p>
+<a class="linkcard" href="/revel-prototype/ops/#/ny/map" target="_blank"><img src="/cards/revel-prototype-map.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Clickable reconstruction · fabricated data</span><strong>The fleet on a map</strong><span class="desc">Every car, its state and its zone — the view dispatch decisions were made against.</span><span class="linkcard-url">/revel-prototype/ops/#/ny/map ↗</span></span></a>
+<h2 id="results">Results</h2>
+<ul>
+<li><strong>~60 seconds</strong> off average passenger wait from batch matching</li>
+<li>One mechanism, synthetic ETA, carrying tolls, dead time, and business constraints into every
+match, instead of a rule for each</li>
+<li>Fewer tolls on pickups and shorter empty pickups (directional)</li>
+</ul> </article> <nav class="series" aria-label="Revel case studies"> <div class="label">Revel case studies</div> <ol> <li> <a href="/revel/w2-pay/">Performance pay for W2 drivers</a> </li><li> <a href="/revel/1099-pay/">The move to 1099: from hourly wage to per-ride fare</a> </li><li> <a href="/revel/driver-onboarding/">A driver onboarding funnel, bootstrapped then rebuilt</a> </li><li> <a href="/revel/keyless-entry/">Keyless entry for a 500-car fleet</a> </li><li> <a href="/revel/dispatch/" aria-current="page">Dispatch: matching drivers to rides when you own the fleet</a> </li> <li><a href="/revel/">← Back to the Revel overview</a></li> </ol> </nav> </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>

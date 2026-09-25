@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rex — travel recommendations with the friend attached — Steven Heyen</title><meta name="description" content="Friend-attributed travel recommendations with no feed, no likes, no rankings. A product I design, build, and run."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/rex/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="Rex — travel recommendations with the friend attached"><meta property="og:description" content="Friend-attributed travel recommendations with no feed, no likes, no rankings. A product I design, build, and run."><meta property="og:url" content="https://stevenh44.github.io/rex/"><meta property="og:image" content="https://stevenh44.github.io/og/rex.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Rex — travel recommendations with the friend attached"><meta name="twitter:description" content="Friend-attributed travel recommendations with no feed, no likes, no rankings. A product I design, build, and run."><meta name="twitter:image" content="https://stevenh44.github.io/og/rex.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/">Hertz</a><a href="/revel/">Revel</a><a href="/rex/" aria-current="page">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">Independent product · May 2026–present · live at rexthis.com</p> <h1>Rex — travel recommendations with the friend attached</h1> <p class="summary">Friend-attributed travel recommendations with no feed, no likes, no rankings. A product I design, build, and run.</p> </header> <article class="prose"> <h2 id="the-short-version">The short version</h2>
+<p>The best travel advice is already in your friends’ heads, scattered across old texts and
+screenshots. Rex collects it, keeps <em>who told you</em> attached to every place, and surfaces the
+overlap: the spot three friends recommended independently. No feed, no likes, no rankings.</p>
+<p>Rex is live at rexthis.com. I design it and build it, and two friends have shaped the product
+along the way with sharp input.</p>
+<a class="linkcard" href="https://rexthis.com" rel="noopener" target="_blank"><img src="/cards/rex.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Live</span><strong>Rex — your friends already know where to go</strong><span class="desc">Save the places you love, see where your friends have been, and keep their names on every recommendation. A field notebook for people who ask friends first.</span><span class="linkcard-url">rexthis.com ↗</span></span></a>
+<h2 id="what-it-does">What it does</h2>
+<figure class="photo"><img src="/photos/rex-checkin-handoff.jpg" alt="Three Rex phone screens on sample Lisbon data: the map filtered to want-to-go places, the card behind the plus button listing nearby places, and a private log book of visits by date." width="1800" height="1249" loading="lazy"><figcaption>From the check-in design handoff: the map filtered for a trip, the one card behind the +, and the private log book. <span class="credit">Design handoff · sample data</span></figcaption></figure>
+<p><strong>Collect recommendations</strong></p>
+<ul>
+<li><strong>Save a place</strong> with a status (want to go, liked, top pick), type, notes, and tags.</li>
+<li><strong>Attribution.</strong> Every pin is a pin <em>from someone</em>, linked to their account once they join. A
+friend’s note stays in their words and can’t be edited.</li>
+<li><strong>Paste a texted list.</strong> Rex finds each place and queues it for review, credited to the friend
+who wrote it.</li>
+<li><strong>Import</strong> Google Maps saved places from Takeout or a shared list link.</li>
+</ul>
+<p><strong>Plan a trip</strong></p>
+<ul>
+<li><strong>The map is the app.</strong> Filter by person, type, status, or tag, from country to neighborhood.</li>
+<li><strong>Overlap.</strong> When several friends recommend a place, the pin shows a count, not a rank.</li>
+<li><strong>Friend layers.</strong> See everyone’s places in a city at once, minus the ones you’ve saved.</li>
+<li><strong>Ask a friend</strong> for their picks in a city, starting from what they’ve mapped.</li>
+</ul>
+<p><strong>Track where you’ve been</strong></p>
+<ul>
+<li><strong>Check in</strong> with one tap. “Been” is recorded as its own fact, and you can rate on the spot.</li>
+<li><strong>Passport.</strong> Each city you visit gets a custom stamp, shown as a flip-through book at a public
+URL.</li>
+<li><strong>Log book.</strong> A private, dated record of every visit. It opens only from the passport and place
+pages, so it never becomes a feed.</li>
+</ul>
+<p><strong>Share what you know</strong></p>
+<ul>
+<li><strong>Share a filtered view.</strong> “My Lisbon recs” as a link anyone can open and save from in one tap.</li>
+<li><strong>Invite links</strong> bring a friend straight into your circle.</li>
+</ul>
+<h2 id="product-decisions">Product decisions</h2>
+<p><strong>City first, not list first.</strong> The first version opened onto your own list and felt like every
+other places app. A July working session with a friend reframed it: people open Rex to plan a
+trip, so the front door is a city and the friends who know it. Your own list becomes the
+passport you build and show off. That reframe reorganized the roadmap.</p>
+<p><strong>No ranking.</strong> Restaurant apps make you rank places against each other. A Brooklyn pizza place
+and a café in Amman aren’t comparable, and forcing the comparison makes people stop logging.
+Rex’s bar is simpler: <em>a friend was confident enough to recommend it.</em> Overlap is a number,
+never a sort order.</p>
+<p><strong>“Been” is a fact, not an opinion.</strong> Status is an opinion ladder. Having <em>been</em> is a separate
+axis, derived from check-ins, so a place can be <em>been and never rated</em>. The product goes looking
+for that state.</p>
+<p><strong>The passport fills itself in.</strong> A check-in writes the city stamp, so nobody types one in. It
+never overrides what a person told Rex directly.</p>
+<p><strong>The database is the security boundary.</strong> Friend visibility, share links, and private contact
+data are enforced with Postgres row-level security, not client code. An app bug can’t leak a
+friend’s private notes because the database won’t return them.</p>
+<h2 id="the-metric-that-matters">The metric that matters</h2>
+<p><strong>The share of new accounts with at least one friend connection within 24 hours.</strong>
+Recommendations per user and total connections are multipliers on it, or vanity numbers.</p>
+<p>That metric sets the priorities. The person who opens your Lisbon link is Rex’s warmest lead:
+they <em>asked</em> for your recommendations. So the highest-value work turns every share into a way
+in. Open the link, save what you like, and you’re connected to the friend who sent it.</p> </article>  </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>

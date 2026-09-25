@@ -1,0 +1,5 @@
+# Cloudflare Pages response headers. Keeps every page out of search results while
+# leaving it crawlable, so engines can actually see the noindex. (A robots.txt
+# Disallow would hide the tag and let bare URLs get indexed anyway.)
+/*
+  X-Robots-Tag: noindex, nofollow

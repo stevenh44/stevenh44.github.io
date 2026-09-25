@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Keyless entry for a 500-car fleet — Steven Heyen</title><meta name="description" content="The product and workflow that made a driver's phone the key: remote assignment, console controls, and an in-app key scoped to the shift. Retired a 24/7 role at three depots, cut four minutes of dead time per shift, and gave ops one screen instead of two."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/revel/keyless-entry/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="Keyless entry for a 500-car fleet"><meta property="og:description" content="The product and workflow that made a driver's phone the key: remote assignment, console controls, and an in-app key scoped to the shift. Retired a 24/7 role at three depots, cut four minutes of dead time per shift, and gave ops one screen instead of two."><meta property="og:url" content="https://stevenh44.github.io/revel/keyless-entry/"><meta property="og:image" content="https://stevenh44.github.io/og/revel-keyless-entry.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Keyless entry for a 500-car fleet"><meta name="twitter:description" content="The product and workflow that made a driver's phone the key: remote assignment, console controls, and an in-app key scoped to the shift. Retired a 24/7 role at three depots, cut four minutes of dead time per shift, and gave ops one screen instead of two."><meta name="twitter:image" content="https://stevenh44.github.io/og/revel-keyless-entry.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/">Hertz</a><a href="/revel/" aria-current="page">Revel</a><a href="/rex/">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">Revel · Senior Product Manager · Aug 2023 – early 2024</p> <h1>Keyless entry for a 500-car fleet</h1> <p class="summary">The product and workflow that made a driver&#39;s phone the key: remote assignment, console controls, and an in-app key scoped to the shift. Retired a 24/7 role at three depots, cut four minutes of dead time per shift, and gave ops one screen instead of two.</p> </header> <article class="prose"> <h2 id="the-short-version">The short version</h2>
+<p>Revel drivers started every shift by collecting a physical key from a staffed desk. With 500
+Teslas and more depots opening, that cost grew with every location. I led the
+product and workflow that made the driver’s phone the key: remote vehicle assignment, vehicle
+controls in the ops console, and an in-app key (unlock, start, lock, find) valid only for the
+assigned car during a live shift. Tesla’s API handled the car. We built everything else:
+assignment, permissions, the driver and ops flows, and rollout. Vehicle handoff went from a staffed
+counter to a text message, and ops went from two screens to one.</p>
+<h2 id="the-problem">The problem</h2>
+<p>Each depot was staffed around the clock, largely to hand out keys: about two people per depot per
+day across the ground and driver operations teams. That headcount scaled linearly with depots, and
+the roles were hard to hire and retain.</p>
+<p>The keys themselves were a recurring problem: lost, taken home at end of shift, a security
+exposure in a drawer. Remote lock and unlock ran through Standard Fleet, a paid third-party tool,
+though Tesla’s API could already do everything a key does.</p>
+<h2 id="three-phases-each-useful-on-its-own">Three phases, each useful on its own</h2>
+<p><strong>Phase 1: the app is the key.</strong> Ops got vehicle controls in the console: unlock, lock, remote
+start, trunk, horn, and lights. Drivers got the same controls in their app, scoped to the assigned
+car while the shift was in progress. Horn and lights solve a practical problem: finding one white
+Tesla in a lot full of them. Ground ops still assigned cars in person but had nothing to hand over.
+Ops also stopped toggling between our console and a separate Tesla app, because the car’s controls
+now sat next to the driver’s record.</p>
+<a class="linkcard" href="/revel-prototype/ops/#/ny/vehicles" target="_blank"><img src="/cards/revel-prototype-vehicles.webp" alt="" loading="lazy" width="1200" height="630" style="object-position:top right"><span class="linkcard-body"><span class="mono muted">Clickable reconstruction · fabricated data</span><strong>Vehicle controls in the console</strong><span class="desc">Start, lock, unlock, flash, honk, trunk — from the fleet table, next to the car's status. The keyless project's ops side.</span><span class="linkcard-url">/revel-prototype/ops/#/ny/vehicles ↗</span></span></a>
+<p><strong>Phase 2: ops assigns remotely.</strong> With the key gone, the depot staffer’s only job was naming the
+car, so we moved that to the console. Drivers check in with a QR code and wait in “standby.” A
+driver-ops agent, increasingly remote, assigns a vehicle, with ineligible cars grayed out and the
+reason shown. The driver gets a text with the plate. On its own this phase changed little, but
+paired with the app it removed the last reason to staff the counter.</p>
+<p><strong>Phase 3: assignment automated.</strong> A scheduled job assigned a car to each driver in the standby
+queue. Agents handled only exceptions, such as a car that failed its checks or a driver who needed
+a specific model. Assignment went from someone’s all-day task to a queue that emptied itself.</p>
+<p>Target throughout: <strong>95% of drivers on depot-based Teslas never touch a physical key</strong> to start,
+work, or finish a shift.</p>
+<figure class="fig" data-fig="keyless-flow" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="Start of shift in four versions (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 492" role="img" aria-label="Start of shift in four versions. Before: driver arrives, waits at a staffed key desk, gets a physical key, finds the car. Phase 1, the app is the key: ground ops still assigns a car in person, but the driver finds, unlocks and starts it from the app. Phase 2, ops assigns remotely: the driver checks in and waits in standby, a remote ops agent assigns a car from the console, the driver gets a text with the plate. Phase 3, assignment automated: a scheduled job works the standby queue and ops only handles exceptions. Results: the 24/7 key role retired at three depots, four minutes less dead time per shift, unattended rental pickup made possible.">
+<style>
+[data-fig="keyless-flow"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="keyless-flow"] .hi{fill:var(--accent-muted);stroke:var(--accent)}[data-fig="keyless-flow"] .gone{fill:none;stroke:var(--border);stroke-dasharray:4 3}
+[data-fig="keyless-flow"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}[data-fig="keyless-flow"] .hair{stroke:var(--border);fill:none;stroke-dasharray:3 3}
+[data-fig="keyless-flow"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="keyless-flow"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}
+[data-fig="keyless-flow"] .k{fill:var(--ink-muted);font:500 11.5px var(--font-mono);letter-spacing:.02em}[data-fig="keyless-flow"] .x{fill:var(--ink-muted);font:600 14px var(--font-sans)}
+[data-fig="keyless-flow"] .a{fill:var(--accent);font:600 13px var(--font-sans)}[data-fig="keyless-flow"] .n{fill:var(--accent);font:500 20px var(--font-mono);letter-spacing:-.02em}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker></defs>
+
+
+<text class="k" x="0" y="12">BEFORE · A STAFFED COUNTER AT EVERY DEPOT</text>
+<rect class="box" x="0.5" y="24.5" width="150" height="64" rx="8"></rect>
+<text class="t" x="14" y="50">Driver arrives</text><text class="m" x="14" y="70">at the depot</text>
+<path class="line" d="M152 56 H180" marker-end="url(#ar)"></path>
+<rect class="gone" x="183.5" y="24.5" width="230" height="64" rx="8"></rect>
+<text class="x" x="197" y="48">Key desk</text><text class="m" x="197" y="66">2 people · 24/7 · every depot</text><text class="m" x="197" y="82">lost keys, keys taken home</text>
+<path class="line" d="M415 56 H443" marker-end="url(#ar)"></path>
+<rect class="box" x="446.5" y="24.5" width="200" height="64" rx="8"></rect>
+<text class="t" x="460" y="50">Physical key</text><text class="m" x="460" y="70">and a wave toward the lot</text>
+<path class="line" d="M648 56 H676" marker-end="url(#ar)"></path>
+<rect class="box" x="679.5" y="24.5" width="250" height="64" rx="8"></rect>
+<text class="t" x="693" y="50">Find the car, start the shift</text><text class="m" x="693" y="70">paid time, no revenue</text>
+<path class="hair" d="M0 106 H960"></path>
+
+
+<text class="k" x="0" y="130">PHASE 1 · THE APP IS THE KEY</text>
+<rect class="box" x="0.5" y="142.5" width="150" height="64" rx="8"></rect>
+<text class="t" x="14" y="168">Driver arrives</text><text class="m" x="14" y="188">at the depot</text>
+<path class="line" d="M152 174 H180" marker-end="url(#ar)"></path>
+<rect class="box" x="183.5" y="142.5" width="230" height="64" rx="8"></rect>
+<text class="t" x="197" y="166">Ground ops assigns</text><text class="m" x="197" y="184">a car, in person —</text><text class="m" x="197" y="200">but no key to hand over</text>
+<path class="line" d="M415 174 H443" marker-end="url(#ar)"></path>
+<rect class="hi" x="446.5" y="142.5" width="250" height="64" rx="8"></rect>
+<text class="t" x="460" y="166">Find · unlock · start in the app</text><text class="m" x="460" y="184">horn + lights to find it in the lot;</text><text class="m" x="460" y="200">only your car, only during your shift</text>
+<path class="line" d="M698 174 H726" marker-end="url(#ar)"></path>
+<rect class="box" x="729.5" y="142.5" width="150" height="64" rx="8"></rect>
+<text class="t" x="743" y="168">Shift starts</text><text class="m" x="743" y="188">no counter, no key</text>
+<path class="hair" d="M0 224 H960"></path>
+
+
+<text class="k" x="0" y="248">PHASE 2 · OPS ASSIGNS REMOTELY</text>
+<rect class="box" x="0.5" y="260.5" width="150" height="64" rx="8"></rect>
+<text class="t" x="14" y="284">Check in</text><text class="m" x="14" y="302">QR at the depot;</text><text class="m" x="14" y="318">waits in standby</text>
+<path class="line" d="M152 292 H180" marker-end="url(#ar)"></path>
+<rect class="hi" x="183.5" y="260.5" width="230" height="64" rx="8"></rect>
+<text class="t" x="197" y="284">Ops assigns from the console</text><text class="m" x="197" y="302">remote; unfit cars grayed out</text><text class="m" x="197" y="318">with the reason shown</text>
+<path class="line" d="M415 292 H443" marker-end="url(#ar)"></path>
+<rect class="box" x="446.5" y="260.5" width="200" height="64" rx="8"></rect>
+<text class="t" x="460" y="284">Text with the plate</text><text class="m" x="460" y="302">"You're in T409654C"</text><text class="m" x="460" y="318">and again on any change</text>
+<path class="line" d="M648 292 H676" marker-end="url(#ar)"></path>
+<rect class="box" x="679.5" y="260.5" width="250" height="64" rx="8"></rect>
+<text class="t" x="693" y="284">Find · unlock · start in the app</text><text class="m" x="693" y="304">same as phase 1</text>
+<path class="hair" d="M0 342 H960"></path>
+
+
+<text class="k" x="0" y="366">PHASE 3 · ASSIGNMENT AUTOMATED</text>
+<rect class="box" x="0.5" y="378.5" width="150" height="64" rx="8"></rect>
+<text class="t" x="14" y="402">Check in</text><text class="m" x="14" y="420">QR at the depot;</text><text class="m" x="14" y="436">waits in standby</text>
+<path class="line" d="M152 410 H180" marker-end="url(#ar)"></path>
+<rect class="hi" x="183.5" y="378.5" width="230" height="64" rx="8"></rect>
+<text class="t" x="197" y="402">A cron job assigns a car</text><text class="m" x="197" y="420">works the standby queue;</text><text class="m" x="197" y="436">ops handles the exceptions</text>
+<path class="line" d="M415 410 H443" marker-end="url(#ar)"></path>
+<rect class="box" x="446.5" y="378.5" width="200" height="64" rx="8"></rect>
+<text class="t" x="460" y="402">Text with the plate</text><text class="m" x="460" y="422">nobody typed it</text>
+<path class="line" d="M648 410 H676" marker-end="url(#ar)"></path>
+<rect class="box" x="679.5" y="378.5" width="250" height="64" rx="8"></rect>
+<text class="t" x="693" y="402">Find · unlock · start in the app</text><text class="m" x="693" y="422">no human in the loop</text>
+<path class="hair" d="M0 460 H960"></path>
+<text class="a" x="0" y="478">3 depots · 24/7 key role retired at each</text>
+<text class="a" x="330" y="478">−4 min dead time per shift</text>
+<text class="a" x="960" y="478" text-anchor="end">Unattended rental pickup became possible</text>
+</svg>
+</div><figcaption>Start of shift, before and through the three phases. The highlighted box is what changed each time.</figcaption></figure>
+<h2 id="testing-before-rollout">Testing before rollout</h2>
+<p>Before any driver used it, we sent a harmless command, <strong>flash the lights</strong>, to the fleet on a
+schedule. Not every command arrived, and the failure pattern led us to test sleeping vehicles
+before the pilot rather than during it.</p>
+<p>We then piloted with a few trusted drivers on beta builds, then about 25 drivers at one depot. Two
+failures surfaced that no API documentation covered:</p>
+<ul>
+<li><strong>Sleeping cars.</strong> A Tesla parked for a while went into deep sleep, and the unlock command hung.
+Drivers found that jiggling the door handle woke the car. We redesigned the flow so the app
+explained what was happening and what to do, instead of spinning.</li>
+<li><strong>Garage dead zones.</strong> Cars on lower parking levels had no cellular signal. The fix was Wi-Fi
+coverage on every level before rollout there.</li>
+</ul>
+<p>Found with 25 drivers instead of 1,200, both became a UI change and a facilities ticket rather
+than a failed launch.</p>
+<p>The pilot also exposed flow problems. Drivers had to open a car-details screen to unlock and
+start, back out, then begin the shift-start flow, and about half hesitated. A teammate sized it:
+ten seconds across 1,200 drivers, at our revenue per driver hour, was meaningful annual revenue
+for a cheap fix. Drivers also weren’t told when their car was unassigned or swapped. The fixes: a
+linear flow, a text on every assignment change, and car swaps without ending the driver’s shift.</p>
+<h2 id="lockout-risk">Lockout risk</h2>
+<p>If the app is the key, a bug is a lockout. I flagged that risk up front, and the fallback was
+deliberate: ops could always unlock remotely, first through that tool and then through our own
+console controls.</p>
+<h2 id="results">Results</h2>
+<ul>
+<li><strong>Retired the 24/7 key-distribution role at three depots.</strong> One around-the-clock position is
+roughly four full-time hires.</li>
+<li><strong>Four minutes less non-revenue time per driver shift</strong> on average, from check-in to ride
+availability. With about 1,200 drivers averaging 22 hours a week, that moved well over a
+hundred driver-hours a week from paid waiting to ride-eligible time.</li>
+<li><strong>Depots could open without a key-desk staffing plan</strong>, and driver support could be remote.</li>
+<li><strong>Most drivers could walk in, find their car, and drive off without speaking to anyone.</strong></li>
+</ul>
+<h2 id="why-it-mattered">Why it mattered</h2>
+<p>Once a car no longer needed a person beside it, renters could pick up from an unattended lot.
+Revel Leasing, the rental product that grew to $1.5M a month, depended on exactly that.</p> </article> <nav class="series" aria-label="Revel case studies"> <div class="label">Revel case studies</div> <ol> <li> <a href="/revel/w2-pay/">Performance pay for W2 drivers</a> </li><li> <a href="/revel/1099-pay/">The move to 1099: from hourly wage to per-ride fare</a> </li><li> <a href="/revel/driver-onboarding/">A driver onboarding funnel, bootstrapped then rebuilt</a> </li><li> <a href="/revel/keyless-entry/" aria-current="page">Keyless entry for a 500-car fleet</a> </li><li> <a href="/revel/dispatch/">Dispatch: matching drivers to rides when you own the fleet</a> </li> <li><a href="/revel/">← Back to the Revel overview</a></li> </ol> </nav> </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>

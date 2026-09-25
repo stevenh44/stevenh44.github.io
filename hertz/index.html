@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hertz — Steven Heyen</title><meta name="description" content="Building the fleet operations and data platform under Hertz's managed rideshare fleets and autonomous vehicle partnerships."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/hertz/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="Hertz"><meta property="og:description" content="Building the fleet operations and data platform under Hertz's managed rideshare fleets and autonomous vehicle partnerships."><meta property="og:url" content="https://stevenh44.github.io/hertz/"><meta property="og:image" content="https://stevenh44.github.io/og/hertz.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Hertz"><meta name="twitter:description" content="Building the fleet operations and data platform under Hertz's managed rideshare fleets and autonomous vehicle partnerships."><meta name="twitter:image" content="https://stevenh44.github.io/og/hertz.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/" aria-current="page">Hertz</a><a href="/revel/">Revel</a><a href="/rex/">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">Staff Product Manager, Mobility &amp; Autonomous Fleet · 2025–present</p> <h1>Hertz</h1> <p class="summary">Building the fleet operations and data platform under Hertz&#39;s managed rideshare fleets and autonomous vehicle partnerships.</p> </header> <article class="prose"> <p>Hertz runs managed rideshare fleets: cars Hertz owns and maintains, rented to rideshare drivers
+across multiple sites and geographies. That operation is also the foundation for autonomous
+fleets, where the “driver” is a partner’s software and questions of vehicle location, state,
+responsibility, and service get harder.</p>
+<figure class="fig" data-fig="hertz-lifecycle" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="A managed fleet vehicle moves through four states: in service, out of service, p (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" role="img" aria-label="A managed fleet vehicle moves through four states: in service, out of service, preventive maintenance, and turnover, then back into service. While in service, the driver slot is filled either by a rideshare driver who rents the car or by an autonomy partner&#x27;s software. The states, the workflows between them, and who is responsible stay the same either way, and every transition is recorded as structured data for reporting.">
+<style>
+[data-fig="hertz-lifecycle"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="hertz-lifecycle"] .hi{fill:var(--accent-muted);stroke:var(--accent)}
+[data-fig="hertz-lifecycle"] .slot{fill:none;stroke:var(--accent);stroke-dasharray:4 3}
+[data-fig="hertz-lifecycle"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}[data-fig="hertz-lifecycle"] .hair{stroke:var(--border);fill:none;stroke-dasharray:3 3}
+[data-fig="hertz-lifecycle"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="hertz-lifecycle"] .b{fill:var(--ink);font:400 13px var(--font-sans)}
+[data-fig="hertz-lifecycle"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}[data-fig="hertz-lifecycle"] .k{fill:var(--ink-muted);font:500 11px var(--font-mono);letter-spacing:.02em}
+[data-fig="hertz-lifecycle"] .a{fill:var(--accent);font:600 13px var(--font-sans)}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker></defs>
+
+<text class="k" x="0" y="12">ONE VEHICLE, FOUR STATES · THE PLATFORM TRACKS EVERY MOVE</text>
+
+<rect class="hi" x="0.5" y="30.5" width="200" height="72" rx="8"></rect>
+<text class="t" x="16" y="58">In service</text>
+<text class="m" x="16" y="80">assigned, attributed, located</text>
+<path class="line" d="M202 66 H246" marker-end="url(#ar)"></path>
+
+<rect class="box" x="249.5" y="30.5" width="200" height="72" rx="8"></rect>
+<text class="t" x="265" y="58">Out of service</text>
+<text class="m" x="265" y="80">why, since when, who owns it</text>
+<path class="line" d="M451 66 H495" marker-end="url(#ar)"></path>
+
+<rect class="box" x="498.5" y="30.5" width="210" height="72" rx="8"></rect>
+<text class="t" x="514" y="58">Preventive maintenance</text>
+<text class="m" x="514" y="80">scheduled, not discovered</text>
+<path class="line" d="M710 66 H754" marker-end="url(#ar)"></path>
+
+<rect class="box" x="757.5" y="30.5" width="202" height="72" rx="8"></rect>
+<text class="t" x="773" y="58">Turnover</text>
+<text class="m" x="773" y="80">ready for the next driver</text>
+
+<path class="line" d="M858 104 V132 H100 V108" marker-end="url(#ar)"></path>
+<text class="m" x="480" y="150" text-anchor="middle">back into service</text>
+
+<path class="hair" d="M0 176 H960"></path>
+<text class="k" x="0" y="200">WHO'S DRIVING WHILE IN SERVICE</text>
+
+<rect class="slot" x="0.5" y="214.5" width="300" height="100" rx="8"></rect>
+<rect class="box" x="16.5" y="226.5" width="268" height="34" rx="6"></rect>
+<text class="b" x="30" y="248">Rideshare driver · rents the car</text>
+<rect class="box" x="16.5" y="268.5" width="268" height="34" rx="6"></rect>
+<text class="b" x="30" y="290">Autonomy partner · software drives</text>
+<path class="line" d="M302 264 H346" marker-end="url(#ar)"></path>
+
+<text class="t" x="352" y="244">Same states, same workflows</text>
+<text class="m" x="352" y="266">Swapping who drives is a configuration change,</text>
+<text class="m" x="352" y="284">not a rewrite. Responsibility is always explicit.</text>
+
+<rect class="box" x="700.5" y="214.5" width="259" height="100" rx="8"></rect>
+<text class="t" x="716" y="244">Every transition recorded</text>
+<text class="m" x="716" y="266">structured data, not spreadsheets</text>
+<text class="a" x="716" y="296">KPIs and reporting</text>
+</svg>
+</div><figcaption>How the platform sees a fleet vehicle. The driver slot is the part autonomy changes.</figcaption></figure>
+<p>I lead product and data platform work for the division:</p>
+<ul>
+<li><strong>Fleet operations platform.</strong> Vehicle state management, maintenance workflows, and field
+tooling, architected as the operational layer for AV fleet management.</li>
+<li><strong>KPI infrastructure.</strong> Fleet tracking moved from spreadsheets and ad-hoc messages into
+structured data and reporting.</li>
+<li><strong>Workflow digitization.</strong> Out-of-service handling, vehicle and driver attribution, preventive
+maintenance, and vehicle turnover.</li>
+<li><strong>Driver performance dashboards.</strong> Prototypes surfacing behavioral and safety signals.</li>
+</ul>
+<p>It’s the Revel problem at a company a few hundred times larger. The design goal: swapping a
+human driver for an autonomy partner should be a configuration change, not a rewrite.</p>
+<h2 id="faster-to-build-than-to-ticket">Faster to build than to ticket</h2>
+<p>Not everything should wait for a roadmap slot. Routine fleet admin is slow by hand, one vehicle
+at a time: retiring a vehicle, renaming a batch after plate changes, putting cars on a
+preventive-maintenance schedule, clearing stale inspection defects, reconciling the insurer’s
+vehicle list, keeping the fleet card platform in step with Samsara.</p>
+<p>So I automated it: ten small scripts, each doing one job, and a simple console to run them from.</p>
+<figure class="fig" data-fig="fleet-desk" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="Ten one-job fleet admin scripts, run from one local console: every run starts as (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-label="Ten one-job fleet admin scripts, run from one local console: every run starts as a preview and writes only after you type APPLY, every run is recorded with its reports, and large syncs are reviewed as a handful of distinct changes. The tools read from and write to Samsara and the fleet card platform.">
+<style>
+[data-fig="fleet-desk"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="fleet-desk"] .hi{fill:var(--accent-muted);stroke:var(--accent)}
+[data-fig="fleet-desk"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}
+[data-fig="fleet-desk"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="fleet-desk"] .b{fill:var(--ink);font:400 13px var(--font-sans)}
+[data-fig="fleet-desk"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}[data-fig="fleet-desk"] .k{fill:var(--ink-muted);font:500 11px var(--font-mono);letter-spacing:.02em}
+[data-fig="fleet-desk"] .a{fill:var(--accent);font:600 13px var(--font-sans)}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker></defs>
+
+<text class="k" x="0" y="12">TEN ONE-JOB SCRIPTS</text>
+<rect class="box" x="0.5" y="26.5" width="270" height="200" rx="8"></rect>
+<text class="b" x="16" y="54">Retire a vehicle</text>
+<text class="b" x="16" y="78">Rename a batch after plate changes</text>
+<text class="b" x="16" y="102">Put cars on a maintenance schedule</text>
+<text class="b" x="16" y="126">Clear stale inspection defects</text>
+<text class="b" x="16" y="150">Reconcile the insurer's vehicle list</text>
+<text class="b" x="16" y="174">Weekly driver safety scores</text>
+<text class="b" x="16" y="198">Sync the fleet card platform</text>
+<path class="line" d="M272 126 H306" marker-end="url(#ar)"></path>
+
+<text class="k" x="310" y="12">ONE LOCAL CONSOLE OVER ALL OF THEM</text>
+<rect class="hi" x="309.5" y="26.5" width="390" height="200" rx="8"></rect>
+<text class="t" x="326" y="54">Safe by default</text>
+<text class="m" x="326" y="74">Every run starts as a preview; it writes only</text>
+<text class="m" x="326" y="91">after you type APPLY.</text>
+<text class="t" x="326" y="122">Every run on the record</text>
+<text class="m" x="326" y="142">What was asked, what changed, and the report.</text>
+<text class="t" x="326" y="173">Changes read as decisions</text>
+<text class="m" x="326" y="193">A few hundred field changes collapse into the</text>
+<text class="m" x="326" y="210">dozen distinct ones; the unusual ones are flagged.</text>
+<path class="line" d="M701 126 H735" marker-end="url(#ar)"></path>
+
+<text class="k" x="739" y="12">SYSTEMS OF RECORD</text>
+<rect class="box" x="738.5" y="26.5" width="221" height="92" rx="8"></rect>
+<text class="t" x="754" y="62">Samsara</text>
+<text class="m" x="754" y="84">telematics, maintenance,</text>
+<text class="m" x="754" y="101">inspections</text>
+<rect class="box" x="738.5" y="134.5" width="221" height="92" rx="8"></rect>
+<text class="t" x="754" y="170">Fleet card platform</text>
+<text class="m" x="754" y="192">drivers, vehicles,</text>
+<text class="m" x="754" y="209">spend policy by location</text>
+</svg>
+</div><figcaption>Internal tooling I built and run, shown as a diagram rather than screenshots.</figcaption></figure>
+<p>It clears the backlog of small jobs now, and a working version is the best spec for the ones
+worth building into the platform.</p> </article>  </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>

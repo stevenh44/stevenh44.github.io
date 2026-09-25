@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The move to 1099: from hourly wage to per-ride fare — Steven Heyen</title><meta name="description" content="Moving ~1,000 NYC drivers from W2 employment to per-ride 1099 contracting. Modeled at +$4.50 per driver hour, landed at about +$4. Take-home pay held, riders never noticed, and a $1.5M-a-month leasing business came out of it."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/revel/1099-pay/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="The move to 1099: from hourly wage to per-ride fare"><meta property="og:description" content="Moving ~1,000 NYC drivers from W2 employment to per-ride 1099 contracting. Modeled at +$4.50 per driver hour, landed at about +$4. Take-home pay held, riders never noticed, and a $1.5M-a-month leasing business came out of it."><meta property="og:url" content="https://stevenh44.github.io/revel/1099-pay/"><meta property="og:image" content="https://stevenh44.github.io/og/revel-1099-pay.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The move to 1099: from hourly wage to per-ride fare"><meta name="twitter:description" content="Moving ~1,000 NYC drivers from W2 employment to per-ride 1099 contracting. Modeled at +$4.50 per driver hour, landed at about +$4. Take-home pay held, riders never noticed, and a $1.5M-a-month leasing business came out of it."><meta name="twitter:image" content="https://stevenh44.github.io/og/revel-1099-pay.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/">Hertz</a><a href="/revel/" aria-current="page">Revel</a><a href="/rex/">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">Revel · Group Product Manager · 2024</p> <h1>The move to 1099: from hourly wage to per-ride fare</h1> <p class="summary">Moving ~1,000 NYC drivers from W2 employment to per-ride 1099 contracting. Modeled at +$4.50 per driver hour, landed at about +$4. Take-home pay held, riders never noticed, and a $1.5M-a-month leasing business came out of it.</p> </header> <article class="prose"> <h2 id="the-short-version">The short version</h2>
+<p>Performance pay took W2 as far as it could go, and Revel still carried all the utilization risk
+(<a href="/revel/w2-pay/">the W2 story</a>). In 2024 we moved ~1,000 NYC drivers to 1099 contracting, paid
+per ride. The payroll-tax burden shifts to the contractor, so if take-home pay holds, margin
+improves, incentives align, and riders never notice. We modeled <strong>+$4.50 revenue per driver
+hour</strong>. It landed at <strong>+$3.50 at launch and about +$4.00</strong> after tuning.</p>
+<figure class="fig" data-fig="1099-bet" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="The bet versus what landed (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-label="The bet versus what landed. Modeled: about four dollars fifty more revenue per driver hour. At launch: three dollars fifty. After tuning the levers: about four dollars. Driver take-home pay held steady throughout, Revel Leasing reached one and a half million dollars a month in recurring revenue by month seven, and passenger satisfaction and demand coverage were unaffected.">
+<style>
+[data-fig="1099-bet"] .plan{fill:none;stroke:var(--accent);stroke-dasharray:4 3}[data-fig="1099-bet"] .bar{fill:var(--accent)}[data-fig="1099-bet"] .bar2{fill:var(--accent);opacity:.6}
+[data-fig="1099-bet"] .hair{stroke:var(--border);fill:none}[data-fig="1099-bet"] .base{stroke:var(--border)}
+[data-fig="1099-bet"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="1099-bet"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}
+[data-fig="1099-bet"] .k{fill:var(--ink-muted);font:500 11.5px var(--font-mono);letter-spacing:.02em}
+[data-fig="1099-bet"] .n{fill:var(--accent);font:500 22px var(--font-mono);letter-spacing:-.02em}[data-fig="1099-bet"] .nb{fill:var(--ink);font:500 22px var(--font-mono);letter-spacing:-.02em}
+</style>
+<text class="k" x="0" y="12">THE BET vs. WHAT LANDED · REVENUE PER DRIVER HOUR, CHANGE</text>
+
+<line class="base" x1="0" y1="200.5" x2="520" y2="200.5"></line>
+<rect class="plan" x="20.5" y="50.5" width="110" height="150" rx="3"></rect>
+<text class="n" x="75" y="40" text-anchor="middle">+$4.50</text>
+<text class="m" x="75" y="220" text-anchor="middle">modeled</text>
+<rect class="bar2" x="190" y="84" width="110" height="116" rx="3"></rect>
+<text class="n" x="245" y="74" text-anchor="middle">+$3.50</text>
+<text class="m" x="245" y="220" text-anchor="middle">at launch</text>
+<rect class="bar" x="360" y="67" width="110" height="133" rx="3"></rect>
+<text class="n" x="415" y="57" text-anchor="middle">≈+$4.00</text>
+<text class="m" x="415" y="220" text-anchor="middle">after tuning the levers</text>
+<text class="m" x="0" y="244">Landed close to the model.</text>
+
+
+<path class="hair" d="M560 30 V230"></path>
+<text class="k" x="590" y="50">WHAT HELD</text>
+<text class="nb" x="590" y="88">Stable</text><text class="m" x="690" y="88">driver take-home pay, throughout</text>
+<text class="nb" x="590" y="136">$1.5M/mo</text><text class="m" x="720" y="136">Revel Leasing, by month 7</text>
+<text class="nb" x="590" y="184">No impact</text><text class="m" x="730" y="184">on riders or demand coverage</text>
+</svg>
+</div><figcaption>The bet, and what landed.</figcaption></figure>
+<h2 id="why-now">Why now</h2>
+<ul>
+<li><strong>The business:</strong> nearly every driver hour lost money, and the levers we were pulling weren’t
+closing the gap.</li>
+<li><strong>The drivers:</strong> for many, Revel was their first W2 job, and withholding left no margin. A
+cohort was explicitly asking to be 1099.</li>
+</ul>
+<h2 id="why-it-was-hard">Why it was hard</h2>
+<p>On W2, one HR and payroll platform handled payroll and tax filing, identity, classification,
+background checks, payouts and benefits. On 1099, each of those jobs needed a replacement, and
+half of what we needed had no W2 equivalent.</p>
+<figure class="fig" data-fig="1099-stack" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="Why the move was hard (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" role="img" aria-label="Why the move was hard. On W2, one HR and payroll platform handled payroll and tax filing, identity verification, worker classification, background and license checks, driver payouts, and benefits and compliance. On 1099, half the work was replacing those jobs with a stack: Abound for tax identity, Branch for real-time payouts, DocuSign for agreements, license verification built with AWS OCR, and a fare algorithm in place of hourly pay. The other half had no W2 equivalent: Stripe billing and accounts, vehicle leasing with hourly and weekly rentals and toll pass-through, accept and reject ride, and a split into separate rideshare and rental apps.">
+<style>
+[data-fig="1099-stack"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="1099-stack"] .hi{fill:var(--accent-muted);stroke:var(--accent)}[data-fig="1099-stack"] .chip{fill:var(--surface-100);stroke:var(--border)}
+[data-fig="1099-stack"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}
+[data-fig="1099-stack"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="1099-stack"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}
+[data-fig="1099-stack"] .k{fill:var(--ink-muted);font:500 11.5px var(--font-mono);letter-spacing:.02em}[data-fig="1099-stack"] .c{fill:var(--ink);font:500 12px var(--font-mono)}[data-fig="1099-stack"] .r{fill:var(--accent);font:500 12px var(--font-mono)}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker></defs>
+
+<text class="k" x="0" y="12">ON W2 · ONE PLATFORM DID ALL OF THIS</text>
+<rect class="box" x="0.5" y="24.5" width="300" height="290" rx="8"></rect>
+<text class="t" x="16" y="50">HR &#x26; payroll platform</text>
+<text class="m" x="16" y="68">one vendor, one integration</text>
+<rect class="chip" x="16.5" y="84.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="103">Payroll &#x26; tax filing</text>
+<rect class="chip" x="16.5" y="120.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="139">Identity verification</text>
+<rect class="chip" x="16.5" y="156.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="175">Worker classification</text>
+<rect class="chip" x="16.5" y="192.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="211">Background &#x26; license checks</text>
+<rect class="chip" x="16.5" y="228.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="247">Driver payouts</text>
+<rect class="chip" x="16.5" y="264.5" width="268" height="28" rx="4"></rect><text class="c" x="28" y="283">Benefits &#x26; compliance</text>
+
+<path class="line" d="M304 170 H330" marker-end="url(#ar)"></path>
+
+<text class="k" x="336" y="12">ON 1099 · HALF REPLACEMENT, HALF NET-NEW</text>
+<rect class="box" x="336.5" y="24.5" width="300" height="290" rx="8"></rect>
+<text class="t" x="352" y="50">Replaced</text>
+<text class="m" x="352" y="68">the same jobs, a stack of vendors</text>
+<rect class="chip" x="352.5" y="84.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="103">Tax identity</text><text class="r" x="608" y="103" text-anchor="end">Abound</text>
+<rect class="chip" x="352.5" y="120.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="139">Payouts, real time</text><text class="r" x="608" y="139" text-anchor="end">Branch</text>
+<rect class="chip" x="352.5" y="156.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="175">Agreements</text><text class="r" x="608" y="175" text-anchor="end">DocuSign</text>
+<rect class="chip" x="352.5" y="192.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="211">License checks</text><text class="r" x="608" y="211" text-anchor="end">AWS OCR</text>
+<rect class="chip" x="352.5" y="228.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="247">Hourly pay → fare</text><text class="r" x="608" y="247" text-anchor="end">built</text>
+<rect class="chip" x="352.5" y="264.5" width="268" height="28" rx="4"></rect><text class="c" x="364" y="283">Eligibility</text><text class="r" x="608" y="283" text-anchor="end">restrictions</text>
+
+<rect class="hi" x="659.5" y="24.5" width="300" height="290" rx="8"></rect>
+<text class="t" x="675" y="50">Net-new</text>
+<text class="m" x="675" y="68">no W2 equivalent at all</text>
+<rect class="chip" x="675.5" y="84.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="103">Billing &#x26; accounts</text><text class="r" x="931" y="103" text-anchor="end">Stripe</text>
+<rect class="chip" x="675.5" y="120.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="139">Vehicle leasing</text><text class="r" x="931" y="139" text-anchor="end">hourly, weekly</text>
+<rect class="chip" x="675.5" y="156.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="175">Toll &#x26; ticket pass-through</text>
+<rect class="chip" x="675.5" y="192.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="211">Accept / reject a ride</text>
+<rect class="chip" x="675.5" y="228.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="247">Rideshare / rental app split</text>
+<rect class="chip" x="675.5" y="264.5" width="268" height="28" rx="4"></rect><text class="c" x="687" y="283">Security deposits</text>
+</svg>
+</div><figcaption>Half the work was replacement. The other half was net-new.</figcaption></figure>
+<h2 id="how-we-piloted">How we piloted</h2>
+<p>We launched the pilot within a month, with <strong>15 drivers</strong> and minimal engineering: hourly pay
+off, ride rejection on, key metrics measured. The first cohort ran on Google Sheets I built and
+maintained with the ops team. W2 and 1099 then ran <strong>side by side for six months</strong> while we
+validated the economics and driver experience and built the platform. By month seven, every
+driver had converted.</p>
+<p>I ran the program as a single pod across HR, legal, marketing, PR, ops, engineering and data. My
+job was sequencing: what had to happen, in what order, owned by whom. Engineering reorganized
+around it. I kept a small full-stack task force on the migration, and the senior PM on my team
+ran the larger team building the 1099 product.</p>
+<figure class="fig" data-fig="1099-rollout" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="Phased rollout over seven months (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-label="Phased rollout over seven months. Month 1: invite-only at a single depot, run on Google Sheets with minimal engineering. Month 2: the invite widens; restrictions and automated driver payments ship. Months 3 to 4: open to all drivers with incentives to convert; automated billing and identity management. Month 5: a 90-day notice that the change is happening regardless; the rideshare and rental apps split. Month 7: every driver converted; onboarding is self-service through restrictions.">
+<style>
+[data-fig="1099-rollout"] .axis{stroke:var(--border)}[data-fig="1099-rollout"] .dot{fill:var(--ink-muted)}[data-fig="1099-rollout"] .dot2{fill:var(--accent)}
+[data-fig="1099-rollout"] .t{fill:var(--ink);font:600 13.5px var(--font-sans)}[data-fig="1099-rollout"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}
+[data-fig="1099-rollout"] .k{fill:var(--ink-muted);font:500 11.5px var(--font-mono);letter-spacing:.02em}[data-fig="1099-rollout"] .mo{fill:var(--accent);font:500 13px var(--font-mono)}
+[data-fig="1099-rollout"] .lane{fill:var(--surface-raised);stroke:var(--border)}
+</style>
+<text class="k" x="0" y="12">SEVEN MONTHS, GATED ON EVIDENCE — W2 AND 1099 RAN SIDE BY SIDE</text>
+<rect class="lane" x="0.5" y="24.5" width="959" height="92" rx="8"></rect>
+<rect class="lane" x="0.5" y="150.5" width="959" height="92" rx="8"></rect>
+<text class="k" x="14" y="44">WHAT DRIVERS SAW</text>
+<text class="k" x="14" y="170">WHAT GOT BUILT</text>
+<line class="axis" x1="0" y1="133.5" x2="960" y2="133.5"></line>
+
+<circle class="dot" cx="100" cy="133.5" r="4"></circle><text class="mo" x="100" y="138" dx="10">M1</text>
+<circle class="dot" cx="290" cy="133.5" r="4"></circle><text class="mo" x="290" y="138" dx="10">M2</text>
+<circle class="dot" cx="480" cy="133.5" r="4"></circle><text class="mo" x="480" y="138" dx="10">M3–4</text>
+<circle class="dot" cx="670" cy="133.5" r="4"></circle><text class="mo" x="670" y="138" dx="10">M5</text>
+<circle class="dot2" cx="860" cy="133.5" r="5"></circle><text class="mo" x="860" y="138" dx="10">M7</text>
+
+<text class="t" x="14" y="72">Invite-only</text><text class="m" x="14" y="90">one depot · 15 drivers</text>
+<text class="t" x="204" y="72">Invite widens</text><text class="m" x="204" y="90">more drivers</text>
+<text class="t" x="394" y="72">Open to all</text><text class="m" x="394" y="90">with incentives to convert</text>
+<text class="t" x="584" y="72">90-day notice</text><text class="m" x="584" y="90">it's happening regardless</text>
+<text class="t" x="774" y="72">Everyone on 1099</text><text class="m" x="774" y="90">every driver converted</text>
+
+<text class="t" x="14" y="198">Minimal eng</text><text class="m" x="14" y="216">ops ran on Sheets I built</text>
+<text class="t" x="204" y="198">Restrictions</text><text class="m" x="204" y="216">+ driver payments</text>
+<text class="t" x="394" y="198">Billing, identity</text><text class="m" x="394" y="216">automated</text>
+<text class="t" x="584" y="198">App split</text><text class="m" x="584" y="216">rideshare vs. rental</text>
+<text class="t" x="774" y="198">Self-serve</text><text class="m" x="774" y="216">onboarding, end to end</text>
+</svg>
+</div></figure>
+<h2 id="what-we-built">What we built</h2>
+<p><strong>Restrictions, the eligibility primitive.</strong> One open restriction keeps a driver offline. A
+configurable set attaches at conversion or onboarding, and each clears itself when its check
+passes. Ops gets visibility, not an override, and Revel never took ownership of drivers’ SSNs.
+Built for conversion, it became the whole onboarding funnel.
+<a href="/revel/driver-onboarding/">The onboarding case study →</a></p>
+<p><strong>A fare instead of a wage.</strong> With the data team, who carried much of the modeling, we set
+per-ride pay with a linear regression on trip time and distance, balancing acceptance against
+earnings per hour. The metric we watched hardest was <strong>pay per minute, estimated versus actual</strong>.</p>
+<p><strong>A payments source of truth, and payouts within the hour.</strong> Every trip and tip writes a row
+with amount, type, timestamps, and a plain-language description that doubles as the per-ride
+earnings disclosure regulators require. Each row becomes a Branch disbursement with a unique
+transaction ID, so nothing pays twice.</p>
+<figure class="fig" data-fig="pay-pipeline" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="Payment pipeline: a completed trip or tip writes a row to the payments table, wh (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 176" role="img" aria-label="Payment pipeline: a completed trip or tip writes a row to the payments table, which creates a Branch disbursement with a unique transaction id, which reaches the driver&#x27;s wallet within the hour. Previously: weekly payroll.">
+<style>
+[data-fig="pay-pipeline"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="pay-pipeline"] .hi{fill:var(--accent-muted);stroke:var(--accent)}
+[data-fig="pay-pipeline"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}[data-fig="pay-pipeline"] .hair{stroke:var(--border);fill:none;stroke-dasharray:3 3}
+[data-fig="pay-pipeline"] .t{fill:var(--ink);font:600 13px var(--font-sans)}[data-fig="pay-pipeline"] .b{fill:var(--ink);font:400 12px var(--font-sans)}
+[data-fig="pay-pipeline"] .m{fill:var(--ink-muted);font:400 12px var(--font-sans)}[data-fig="pay-pipeline"] .k{fill:var(--ink-muted);font:500 11px var(--font-mono);letter-spacing:.02em}
+[data-fig="pay-pipeline"] .a{fill:var(--accent);font:600 13px var(--font-sans)}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker></defs>
+<text class="k" x="0" y="12">AFTER · 2024</text>
+
+<rect class="box" x="0.5" y="24.5" width="180" height="96" rx="8"></rect>
+<text class="t" x="14" y="48">Trip completes</text><text class="t" x="14" y="66">or tip received</text><text class="m" x="14" y="92">in the Revel backend</text>
+<path class="line" d="M182 72 H214" marker-end="url(#ar)"></path>
+<rect class="hi" x="217.5" y="24.5" width="290" height="96" rx="8"></rect>
+<text class="t" x="231" y="48">One row per payment</text>
+<text class="b" x="231" y="68">amount · type · timestamps ·</text><text class="b" x="231" y="84">a plain-language description</text>
+<text class="m" x="231" y="106">= the regulator's per-ride earnings disclosure</text>
+<path class="line" d="M509 72 H541" marker-end="url(#ar)"></path>
+<rect class="box" x="544.5" y="24.5" width="200" height="96" rx="8"></rect>
+<text class="t" x="558" y="48">Branch disbursement</text><text class="m" x="558" y="72">unique transaction id,</text><text class="m" x="558" y="88">so a double pay can't happen</text>
+<path class="line" d="M746 72 H778" marker-end="url(#ar)"></path>
+<rect class="box" x="781.5" y="24.5" width="178" height="96" rx="8"></rect>
+<text class="t" x="795" y="48">Driver's wallet</text><text class="a" x="795" y="96">within the hour</text>
+
+<path class="hair" d="M0 140 H960"></path>
+<text class="k" x="0" y="160">BEFORE</text>
+<text class="m" x="70" y="160">Shift ends → payroll → weekly paycheck.</text>
+</svg>
+</div><figcaption>From a completed trip to money in the driver’s wallet.</figcaption></figure>
+<a class="linkcard" href="/revel-prototype/driver/#/rides" target="_blank"><img src="/cards/revel-prototype-rides.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Clickable reconstruction · fabricated data</span><strong>A driver's ride history, fare by fare</strong><span class="desc">Every ride with its fare broken into minutes × rate and miles × rate — the per-ride disclosure the payments table generated.</span><span class="linkcard-url">/revel-prototype/driver/#/rides ↗</span></span></a>
+<p><strong>Levers W2 never had.</strong> Contractors lease the car they drive, so leasing became its own
+business: weekly rentals, pricing by vehicle class, a variable take rate, and tolls and tickets
+passed through to the renter. <a href="/revel/">How Revel Leasing was founded and handed off →</a></p>
+<h2 id="what-surprised-us">What surprised us</h2>
+<ul>
+<li><strong>A silent identity gap.</strong> Our tax-identity vendor verified drivers but never wrote a unique ID
+back to our system. Nothing failed loudly. It surfaced months later as 1099 tax-document
+failures for the first ~50 drivers, and cleanup took weeks across engineering, product and HR.</li>
+<li><strong>Some drivers declined or switched back.</strong> W2 remained an option until the legal notice period
+closed it. About 150 drivers left over the transition, with no impact on service.</li>
+<li><strong>The expected backlash never came.</strong> PR prepared for a driver and press reaction that never
+materialized, largely because take-home pay held.</li>
+</ul>
+<h2 id="results">Results</h2>
+<ul>
+<li><strong>+$4 revenue per driver hour</strong>, against a model of +$4.50, realized within about eight months</li>
+<li><strong>Driver take-home pay stable</strong> throughout, the constraint that made the bet defensible</li>
+<li><strong>No impact</strong> on passenger satisfaction or demand coverage</li>
+<li><strong>$1.5M/month</strong> in Revel Leasing revenue by month seven: a new business line, not just a cost
+shift</li>
+<li>Pay cycle: <strong>weekly → within an hour</strong> of each ride or tip</li>
+</ul>
+<h2 id="what-id-do-differently">What I’d do differently</h2>
+<p><strong>Trace every integration end to end before scaling.</strong> The pilot ran without end-to-end
+integrations, so nothing flagged the missing identity write-back until tax season. I’d verify
+what each vendor writes back before the first driver runs through it.</p>
+<p><strong>Instrument the pilot’s seams.</strong> We judged the driver transition on ops anecdotes and take-home
+pay. Nothing major slipped through, but I’d want instrumented signals, not stories.</p> </article> <nav class="series" aria-label="Revel case studies"> <div class="label">Revel case studies</div> <ol> <li> <a href="/revel/w2-pay/">Performance pay for W2 drivers</a> </li><li> <a href="/revel/1099-pay/" aria-current="page">The move to 1099: from hourly wage to per-ride fare</a> </li><li> <a href="/revel/driver-onboarding/">A driver onboarding funnel, bootstrapped then rebuilt</a> </li><li> <a href="/revel/keyless-entry/">Keyless entry for a 500-car fleet</a> </li><li> <a href="/revel/dispatch/">Dispatch: matching drivers to rides when you own the fleet</a> </li> <li><a href="/revel/">← Back to the Revel overview</a></li> </ol> </nav> </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>StoryCorps — 75,000 interviews, one public archive — Steven Heyen</title><meta name="description" content="Migrated a national oral-history archive from Drupal to WordPress, joining facilitated and app-recorded interviews in one public archive, and wrote the verification script that took field-level accuracy from ~80% to 98%. Then extended the CRM to individual donors, participants, and interviews."><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://stevenh44.github.io/storycorps/"><meta property="og:type" content="article"><meta property="og:site_name" content="Steven Heyen"><meta property="og:title" content="StoryCorps — 75,000 interviews, one public archive"><meta property="og:description" content="Migrated a national oral-history archive from Drupal to WordPress, joining facilitated and app-recorded interviews in one public archive, and wrote the verification script that took field-level accuracy from ~80% to 98%. Then extended the CRM to individual donors, participants, and interviews."><meta property="og:url" content="https://stevenh44.github.io/storycorps/"><meta property="og:image" content="https://stevenh44.github.io/og/storycorps.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="StoryCorps — 75,000 interviews, one public archive"><meta name="twitter:description" content="Migrated a national oral-history archive from Drupal to WordPress, joining facilitated and app-recorded interviews in one public archive, and wrote the verification script that took field-level accuracy from ~80% to 98%. Then extended the CRM to individual donors, participants, and interviews."><meta name="twitter:image" content="https://stevenh44.github.io/og/storycorps.png"><meta name="theme-color" content="#f6f1e4"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/_slug_.DO2zPSQp.css"></head> <body> <a class="skip" href="#main">Skip to content</a> <header class="site-header"> <div class="wrap"> <a class="brand" href="/">Steven Heyen</a> <nav class="nav" aria-label="Primary"> <a href="/hertz/">Hertz</a><a href="/revel/">Revel</a><a href="/rex/">Rex</a><a href="/amazon/">Amazon</a><a href="/storycorps/" aria-current="page">StoryCorps</a><a href="/about/">About</a> </nav> </div> </header> <main id="main" tabindex="-1"> <div class="wrap">  <header class="page-head"> <p class="label">StoryCorps · Associate Director of Product Management · Brooklyn · 2019–2021</p> <h1>StoryCorps — 75,000 interviews, one public archive</h1> <p class="summary">Migrated a national oral-history archive from Drupal to WordPress, joining facilitated and app-recorded interviews in one public archive, and wrote the verification script that took field-level accuracy from ~80% to 98%. Then extended the CRM to individual donors, participants, and interviews.</p> </header> <article class="prose"> <h2 id="the-short-version">The short version</h2>
+<p><a href="https://storycorps.org">StoryCorps</a> records conversations between ordinary people and preserves
+them at the Library of Congress. I ran product for its digital side: the public archive, the staff
+recording and cataloguing systems, and the CRM underneath the organization.</p>
+<figure class="photo"><img src="/photos/storycorps-mobilebooth-loc.jpg" alt="The silver StoryCorps MobileBooth, an Airstream trailer, parked in front of the Library of Congress in Washington, D.C." width="1600" height="1200" loading="lazy"><figcaption>The StoryCorps MobileBooth outside the Library of Congress, where every interview is preserved. <a class="credit" href="https://commons.wikimedia.org/wiki/File:StoryCorps_booth_vehicle.jpg" rel="noopener" target="_blank">Library of Congress · public domain</a></figcaption></figure>
+<p>The headline project was the <strong>archive migration</strong>: 75,000 professionally recorded interviews moved
+from an aging Drupal site to a new WordPress archive. I managed the engineers building it and wrote
+the script that verified their work field by field. Measured accuracy rose from <strong>about 80% to
+98%</strong>, and the archive team went from overlooked to co-owner.</p>
+<p>The move also ended a split collection. Interviews recorded with the
+<a href="https://storycorps.org/participate/storycorps-app/">StoryCorps App</a> already fed the WordPress
+archive, while facilitated interviews lived in Drupal. Migrating the facilitated collection put
+both in one public archive.</p>
+<figure class="fig" data-fig="storycorps-migration" style="--fig-w:960"><div class="fig-scroll" tabindex="0" role="region" aria-label="How the archive migration was verified (scrolls sideways on small screens)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 372" role="img" aria-label="How the archive migration was verified. An export of the old Drupal archive and an export from the new WordPress archive were normalized, keyed on interview and participant IDs, and compared field by field — about a hundred and ten fields per record, each written as old value, new value, and a one-or-zero match. The comparison workbook also listed records missing on either side and keyword import errors. Each run went to the Recording and Archives team; mismatches became engineering fixes that Steven debugged with the engineers, then tested, re-ran and iterated on. Measured accuracy went from about eighty percent to ninety-eight percent.">
+<style>
+[data-fig="storycorps-migration"] .box{fill:var(--surface-raised);stroke:var(--border)}[data-fig="storycorps-migration"] .hi{fill:var(--accent-muted);stroke:var(--accent)}[data-fig="storycorps-migration"] .chip{fill:var(--surface-100);stroke:var(--border)}
+[data-fig="storycorps-migration"] .line{stroke:var(--ink-muted);fill:none;stroke-width:1.25}[data-fig="storycorps-migration"] .hair{stroke:var(--border);fill:none;stroke-dasharray:3 3}[data-fig="storycorps-migration"] .loop{stroke:var(--accent);fill:none;stroke-width:1.25;stroke-dasharray:4 3}
+[data-fig="storycorps-migration"] .t{fill:var(--ink);font:600 14px var(--font-sans)}[data-fig="storycorps-migration"] .m{fill:var(--ink-muted);font:400 12.5px var(--font-sans)}
+[data-fig="storycorps-migration"] .k{fill:var(--ink-muted);font:500 11.5px var(--font-mono);letter-spacing:.02em}[data-fig="storycorps-migration"] .c{fill:var(--ink);font:500 12px var(--font-mono)}
+[data-fig="storycorps-migration"] .a{fill:var(--accent);font:600 13px var(--font-sans)}[data-fig="storycorps-migration"] .n{fill:var(--accent);font:500 22px var(--font-mono);letter-spacing:-.02em}
+[data-fig="storycorps-migration"] .base{fill:var(--border)}[data-fig="storycorps-migration"] .after{fill:var(--accent)}
+</style>
+<defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--ink-muted)"></path></marker>
+<marker id="ab" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--accent)"></path></marker></defs>
+
+<text class="k" x="0" y="12">VERIFYING A 75,000-INTERVIEW MIGRATION · ONE YEAR OF RECORDS AT A TIME</text>
+
+
+<rect class="box" x="0.5" y="30.5" width="200" height="60" rx="8"></rect>
+<text class="t" x="14" y="54">Old archive (Drupal)</text><text class="m" x="14" y="74">export, per year</text>
+<rect class="box" x="0.5" y="110.5" width="200" height="60" rx="8"></rect>
+<text class="t" x="14" y="134">New archive (WordPress)</text><text class="m" x="14" y="154">export service, same year</text>
+<path class="line" d="M202 60 C230 60 230 100 258 100"></path><path class="line" d="M202 140 C230 140 230 100 258 100" marker-end="url(#ar)"></path>
+
+
+<rect class="box" x="262.5" y="70.5" width="200" height="60" rx="8"></rect>
+<text class="t" x="276" y="94">Normalize, then key</text><text class="m" x="276" y="114">on interview + participant ID</text>
+<path class="line" d="M464 100 H492" marker-end="url(#ar)"></path>
+
+
+<rect class="hi" x="495.5" y="30.5" width="464" height="140" rx="8"></rect>
+<text class="t" x="509" y="52">Compare every field, one row per record</text>
+<text class="m" x="509" y="70">~110 fields per record: metadata, venue, equipment,</text>
+<text class="m" x="509" y="86">release status, keywords, participant demographics</text>
+<rect class="chip" x="509.5" y="98.5" width="140" height="26" rx="4"></rect><text class="c" x="519" y="115">old value</text>
+<rect class="chip" x="657.5" y="98.5" width="140" height="26" rx="4"></rect><text class="c" x="667" y="115">new value</text>
+<rect class="chip" x="805.5" y="98.5" width="140" height="26" rx="4"></rect><text class="c" x="815" y="115">=IF(equal, 1, 0)</text>
+<text class="m" x="509" y="146">Plus tabs for records missing on either side and keyword import errors.</text>
+<text class="m" x="509" y="162">One workbook per year — every mismatch visible and countable.</text>
+
+
+<path class="hair" d="M0 196 H960"></path>
+<rect class="box" x="0.5" y="216.5" width="300" height="60" rx="8"></rect>
+<text class="t" x="14" y="240">Recording &#x26; Archives team reviews</text><text class="m" x="14" y="260">the people whose job is the archive's integrity</text>
+<path class="line" d="M302 246 H330" marker-end="url(#ar)"></path>
+<rect class="box" x="333.5" y="216.5" width="310" height="60" rx="8"></rect>
+<text class="t" x="347" y="240">Engineering fixes, debugged together</text><text class="m" x="347" y="260">I traced each mismatch with the engineers</text>
+<path class="line" d="M645 246 H673" marker-end="url(#ar)"></path>
+<rect class="box" x="676.5" y="216.5" width="283" height="60" rx="8"></rect>
+<text class="t" x="690" y="240">Test, re-run the comparison</text><text class="m" x="690" y="260">and iterate until it holds</text>
+<path class="loop" d="M818 216 V190 H727 V172" marker-end="url(#ab)"></path>
+
+
+<path class="hair" d="M0 300 H960"></path>
+<text class="k" x="0" y="322">MEASURED ACCURACY, FIELD-LEVEL MATCHES</text>
+<rect class="base" x="0" y="328" width="480" height="10" rx="2"></rect><text class="n" x="490" y="338">~80%</text><text class="m" x="562" y="338">first pass</text>
+<rect class="after" x="0" y="354" width="588" height="10" rx="2"></rect><text class="n" x="598" y="364">98%</text><text class="m" x="656" y="364">at cutover</text>
+</svg>
+</div><figcaption>How the migration was verified. The comparison workbook became the shared record between engineering and the archive team.</figcaption></figure>
+<a class="linkcard" href="https://archive.storycorps.org/" rel="noopener" target="_blank"><img src="/cards/storycorps-archive.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Live · archive.storycorps.org</span><strong>StoryCorps Archive</strong><span class="desc">425,000+ conversations, searchable and public: the archive platform I ran product for.</span><span class="linkcard-url">archive.storycorps.org ↗</span></span></a>
+<h2 id="verifying-the-migration">Verifying the migration</h2>
+<p>The old and new systems disagreed, and nothing measured by how much. Each interview-participant pair
+carried about 110 fields, from release restrictions and keyword taxonomies to birthplace and
+self-described identity. “Correct” was defined by the archive team that had curated those fields by
+hand for years.</p>
+<p>The script pulled a year of records from each side, normalized differences that weren’t errors (an
+email versus a name, keyword order, encoding), and keyed every row on interview and participant ID.
+It wrote a workbook showing each field three times: old value, new value, and a 1 or 0. Every
+mismatch was countable and traceable to a cause.</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># for each comparison column (every third) write an if statement that</span></span>
+<span class="line"><span style="color:#6A737D"># compares the two left columns. Write 1 if they're the same, 0 otherwise.</span></span>
+<span class="line"><span style="color:#24292E">worksheet.write_formula(row, col, </span><span style="color:#032F62">"=IF("</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> old_cell </span><span style="color:#D73A49">+</span><span style="color:#032F62"> "="</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> new_cell </span><span style="color:#D73A49">+</span><span style="color:#032F62"> ",1,0)"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>The workbook let the Recording &#x26; Archives team find systemic import errors: whenever the new
+archive disagreed with the old one, some part of the data hadn’t transferred completely. I worked
+each fix with the engineers: trace the field through the mapping, fix, test, re-run. Leadership got a
+number that meant something. The loop ran until the match rate reached <strong>98%</strong> and the remaining 2%
+was known, explained, and accepted.</p>
+<p>I delayed the archive launch to get there, because sync accuracy mattered more than the date. The
+extra time also cut how long a new interview took to reach the archive from <strong>five weeks to two</strong>.
+Two thousand lines of Python turned “trust us” into “let’s check together.”</p>
+<h2 id="returning-interviews-to-participants">Returning interviews to participants</h2>
+<p>The second half of the launch let <strong>125,000+ participants</strong> find and claim their interviews. I wrote
+the publication rules as code. Sensitive-content notes, production interviews, certain program
+prefixes, missing general releases, and participants under thirteen kept an interview locked.
+Everything else went behind a walled garden. The script validated emails and built one outreach list
+per participant, with a claim button for each interview, sent through Mailchimp. <strong>98%</strong> of
+participants were reached, a quarter claimed their interviews, and archive traffic rose <strong>165%</strong>
+year over year.</p>
+<h2 id="going-remote-in-march-2020">Going remote in March 2020</h2>
+<p>StoryCorps’ model was two people in a booth with a facilitator. In March 2020 every booth closed,
+and in under three weeks we shipped two virtual products. <strong>StoryCorps Virtual</strong>, facilitated and
+open source, let staff facilitators keep recording remotely. <strong>StoryCorps Connect</strong> was self-serve:
+two people record a video conversation from their own browsers, preserved as audio plus a photo at
+the Library of Congress. I pushed to ship the facilitated product first, so the staff whose work was
+interviewing had something to do in week one.</p>
+<p>Connect runs inside the newly migrated archive, on the structures the migration had made
+trustworthy. Building on that platform, rather than standing up something separate, is why it
+shipped in weeks. Together the two products recorded <strong>10,000+ interviews</strong> while the booths were
+closed.</p>
+<p>I didn’t build <strong>One Small Step</strong>, StoryCorps’ program that pairs strangers with different political
+views for a 50-minute conversation (7,000+ people across all 50 states so far). Some of the
+underlying technology my boss and I built for Connect was reused to run it.</p>
+<a class="linkcard" href="https://storycorps.org/participate/storycorps-connect/" rel="noopener" target="_blank"><img src="/cards/storycorps-connect.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Live · storycorps.org</span><strong>StoryCorps Connect</strong><span class="desc">The remote interview platform StoryCorps launched in March 2020 — two people, two browsers, a recording that goes to the Library of Congress.</span><span class="linkcard-url">storycorps.org ↗</span></span></a>
+<a class="linkcard" href="https://storycorps.org/discover/onesmallstep/conversations/" rel="noopener" target="_blank"><img src="/cards/storycorps-one-small-step.webp" alt="" loading="lazy" width="1200" height="630"><span class="linkcard-body"><span class="mono muted">Live · storycorps.org</span><strong>One Small Step</strong><span class="desc">StoryCorps' program pairing strangers with different political views for a 50-minute conversation. Not mine — but it runs partly on foundational tech from Connect.</span><span class="linkcard-url">storycorps.org ↗</span></span></a>
+<h2 id="bringing-individuals-into-the-crm">Bringing individuals into the CRM</h2>
+<p>StoryCorps’ Salesforce was well configured for institutional donors: foundations, grants, and
+corporate partners. Individual donors had almost no setup, and participants and interviews didn’t
+exist in it at all. So the organization couldn’t see its likeliest individual donors: people who
+had recorded something that mattered to them.</p>
+<p>I extended the instance so a person was one record, whether they gave, recorded, or both, with
+interviews as their own records linked to the people in them. Development got its first view of
+individual giving alongside the archive.</p>
+<p>After deduplicating years of records, we synced <strong>500,000 contacts</strong> to marketing and built
+automated grant-reporting dashboards for the executive team. Individual donations rose <strong>10%</strong>.</p>
+<h2 id="building-the-internal-tooling">Building the internal tooling</h2>
+<p>I built most of the internal automation myself: Zapier and Python for integrations, AWS Lambda for
+unattended jobs, Salesforce Process Builder for CRM logic, Mailchimp and WordPress for participants.
+The marketing and archive teams got hours back every week. One file-mover script organized
+thousands of interviews, a few weeks of manual effort otherwise.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>At StoryCorps, a data-model decision determined whether a family in Tulsa could still find their
+grandfather’s voice after we moved it. I still think about that when deciding what a dispatcher’s
+screen should show. StoryCorps does work that matters on a nonprofit’s budget, and it was a
+privilege to build for them. <a href="https://storycorps.org">Go listen</a>, and give if you can.</p> </article>  </div> </main> <footer class="site-footer"> <div class="wrap"> <span>Steven Heyen · New York</span> <span> <a href="https://www.linkedin.com/in/stevenheyen/">LinkedIn</a> ·
+<a href="mailto:stevenheyen4@gmail.com">Email</a> ·
+<a href="https://rexthis.com">Rex</a> </span> </div> </footer> </body></html>
